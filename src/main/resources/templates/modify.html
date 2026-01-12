@@ -21,7 +21,28 @@
                 <div class="card-header">
                     <h4>게시글 수정</h4>
                 </div>
-
+                <!--입력폼-->
+                <div class="card-body">
+                    <form action="/action_page.php">
+                        <div class="mb-3 mt-3">
+                            <label for="subject" class="form-label">제목:</label>
+                            <input type="text" class="form-control" id="subject" placeholder="제목을 입력하세요." name="subject">
+                        </div>
+                        <div class="mb-3">
+                            <label for="comment">내용:</label>
+                            <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="writer" class="form-label">작성자:</label>
+                            <input type="text" class="form-control" id="writer" placeholder="작성자를 입력하세요." name="writer">
+                        </div>
+                        <div class="mb-3">
+                            <label for="writerDate" class="form-label">작성날짜:</label>
+                            <input type="date" class="form-control" id="writerDate" name="writerDate">
+                        </div>
+                        <!--전송버튼-->
+                        <button type="submit" class="btn btn-primary">저장</button>
+                    </form>
                 </div>
             </div>
         </div>
