@@ -28,6 +28,8 @@ public class StartController {
      */
     @GetMapping("/insert")//요청주소, 맵핑값
     public String insert() {//메소드명은 맵핑이름과 비슷
+        return "register";//요청이 들어오면 register.html로 응답한다.
+
     }
     /*
     수정폼 이동
