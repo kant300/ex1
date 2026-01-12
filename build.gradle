@@ -1,0 +1,56 @@
+plugins {
+    id 'java'//개발언어
+    id 'org.springframework.boot' version '4.0.1' //스프링부트 버전
+    id 'io.spring.dependency-management' version '1.1.7'//라이브러리 관리버전
+}
+
+// 프로젝트 정보
+group = 'com.example'//그룹
+version = '0.0.1-SNAPSHOT'//개발버번
+description = 'ex1'//프로젝트명
+
+//자바정보
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)//컴파일러 버전
+    }
+}
+
+//환경
+configurations {
+    compileOnly {//컴파일시 작업
+        extendsFrom annotationProcessor//어노테이션을 컴파일시에만 적용
+    }
+}
+
+//저장소관리
+repositories {
+    mavenCentral()
+}
+
+//종속성(현재 프로젝트에 추가된 라이브러리)-외부라이브러리
+dependencies {
+    //타임리프 라이브러리를 추가
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    //웹을 MVC로 구현하는 라이브러리를 추가
+    implementation 'org.springframework.boot:spring-boot-starter-webmvc'
+    //컴파일할 때만 롬북을 적용시킴
+    compileOnly 'org.projectlombok:lombok'
+    //개발할때만 개발툴 라이브러리를 사용
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    //어노테이션은 롬북으로 사용
+    annotationProcessor 'org.projectlombok:lombok'
+    //Test프로그램 사용시 사용할 라이브러리
+    testImplementation 'org.springframework.boot:spring-boot-starter-thymeleaf-test'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    // Source: https://mvnrepository.com/artifact/org.modelmapper/modelmapper
+    //인텔리제이에서 제공하지 않은 라이브러리를 수동으로 추가
+    implementation 'org.modelmapper:modelmapper:3.1.1'
+}
+//https://mvnrepository.com/에서 필요한 라이브러리를 찾아서 수동으로 추가
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
